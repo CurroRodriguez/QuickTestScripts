@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>98685e68-3715-4ad6-b7a0-4182ff535473</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>send_mail.py</StartupFile>
+    <StartupFile>file_upload.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -25,6 +25,7 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="file_upload.py" />
     <Compile Include="send_mail.py" />
     <Compile Include="testing_threads.py" />
   </ItemGroup>
