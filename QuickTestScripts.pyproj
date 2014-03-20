@@ -25,6 +25,7 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="class_members.py" />
     <Compile Include="file_upload.py" />
     <Compile Include="send_mail.py" />
     <Compile Include="testing_threads.py" />
