@@ -25,6 +25,8 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="application_interface\application.py" />
+    <Compile Include="application_interface\runner.py" />
     <Compile Include="class_members.py" />
     <Compile Include="file_upload.py" />
     <Compile Include="loading_modules\lib_module.py" />
@@ -38,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="loading_modules\" />
+    <Folder Include="application_interface\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />
 </Project>
