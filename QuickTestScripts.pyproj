@@ -27,12 +27,17 @@
   <ItemGroup>
     <Compile Include="class_members.py" />
     <Compile Include="file_upload.py" />
+    <Compile Include="loading_modules\lib_module.py" />
+    <Compile Include="loading_modules\module_loading_test.py" />
     <Compile Include="multi_string_split.py" />
     <Compile Include="send_mail.py" />
     <Compile Include="testing_threads.py" />
   </ItemGroup>
   <ItemGroup>
     <InterpreterReference Include="{9a7a9026-48c1-4688-9d5d-e5699d47d074}\2.7" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="loading_modules\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />
 </Project>
