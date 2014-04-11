@@ -18,10 +18,14 @@ def _extract_script_components(filename):
 
 
 def _load_module(module_name):
-    file, pathname, description = imp.find_module(module_name)
-    module = imp.load_module(module_name, file, pathname, description)
-    file.close()
-    return module
+    try:
+        file, pathname, description = imp.find_module(module_name)
+        module = imp.load_module(module_name, file, pathname, description)
+        return module
+    finally:
+        if file:
+            file.close()
+    
 
 
 
