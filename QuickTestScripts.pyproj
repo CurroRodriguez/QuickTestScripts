@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>98685e68-3715-4ad6-b7a0-4182ff535473</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>multi_string_split.py</StartupFile>
+    <StartupFile>application_interface\runner.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -27,6 +27,7 @@
   <ItemGroup>
     <Compile Include="application_interface\application.py" />
     <Compile Include="application_interface\runner.py" />
+    <Compile Include="application_interface\_app_imp.py" />
     <Compile Include="class_members.py" />
     <Compile Include="file_upload.py" />
     <Compile Include="loading_modules\lib_module.py" />

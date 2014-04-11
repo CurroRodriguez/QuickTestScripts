@@ -1,19 +1,21 @@
 
 
-add_settings = None
-app = None
+from _app_imp import Application
+
+_application = None
+
+def get_application():
+    global _application
+    if not _application:
+        _application = Application()
+    return _application
 
 
-class Application(object):
+def add_settings(settings):
+    app = get_application()
+    return app.add_settings(settings)
 
 
-    def __init__(self):
-        global app;
-        global add_settings
-        if app: return
-        app = self
-        add_settings = self.add_settings 
-
-
-    def add_settings(self, settings):
-        print 'Adding settings: ' + str(settings) + ' to ' + str(self)
+def show_settings():
+    app = get_application()
+    app.show_settings()

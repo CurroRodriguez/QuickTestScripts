@@ -1,11 +1,14 @@
 import application
 
 
-app = application.Application()
+app = application.get_application()
 print app
 
-other_app = application.Application()
+other_app = application.get_application()
 print other_app
 
 application.add_settings('this are settings added')
-application.app.add_settings('settings added through app')
+app.add_settings('added through app')
+other_app.add_settings('added through other app')
+
+application.show_settings()
