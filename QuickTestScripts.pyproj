@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>98685e68-3715-4ad6-b7a0-4182ff535473</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>application_interface\runner.py</StartupFile>
+    <StartupFile>url_parsing.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -32,6 +32,7 @@
     <Compile Include="file_upload.py" />
     <Compile Include="loading_modules\lib_module.py" />
     <Compile Include="loading_modules\module_loading_test.py" />
+    <Compile Include="url_parsing.py" />
     <Compile Include="multi_string_split.py" />
     <Compile Include="send_mail.py" />
     <Compile Include="testing_threads.py" />
