@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>98685e68-3715-4ad6-b7a0-4182ff535473</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>url_parsing.py</StartupFile>
+    <StartupFile>parsing\url_parsing.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -32,7 +32,9 @@
     <Compile Include="file_upload.py" />
     <Compile Include="loading_modules\lib_module.py" />
     <Compile Include="loading_modules\module_loading_test.py" />
-    <Compile Include="url_parsing.py" />
+    <Compile Include="parsing\query_parser.py" />
+    <Compile Include="parsing\test_query_parser.py" />
+    <Compile Include="parsing\url_parsing.py" />
     <Compile Include="multi_string_split.py" />
     <Compile Include="send_mail.py" />
     <Compile Include="testing_threads.py" />
@@ -43,6 +45,7 @@
   <ItemGroup>
     <Folder Include="loading_modules\" />
     <Folder Include="application_interface\" />
+    <Folder Include="parsing\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />
 </Project>
