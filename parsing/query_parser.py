@@ -6,18 +6,62 @@ import string
 class Parser(object):
 
     def parse(self, expression_string):
-        identifier = pp.Word(pp.alphanums)
-        operators = pp.Regex('=')
-        operator_tokens = pp.Regex('\$eq')
-        comparison_operators = operators | operator_tokens
-        string_value = pp.QuotedString('"')
-        numeric_value = pp.Regex(r"[+-]?\d+(:?\.\d*)?(:?[eE][+-]?\d+)?")
-        boolean_value = pp.Regex('true')
-        constant = string_value | numeric_value | boolean_value
-        constant.setParseAction(self.replace_if_numeric, self.replace_if_boolean)
-        expression = pp.Group(identifier + comparison_operators + constant)
-        result = expression.parseString(expression_string)
+        result = self.grammar.parseString(expression_string)
         return result.asList()
+
+
+    @property
+    def grammar(self):
+        return  (self.compound_expression 
+                |self.expression)
+
+
+    @property
+    def identifier(self):
+        return pp.Word(pp.alphanums)
+
+
+    @property
+    def numeric_operators(self):
+        return pp.Regex('=')
+
+
+    @property
+    def operator_tokens(self):
+        return pp.Regex('\$eq')
+
+
+    @property 
+    def logical_operator(self):
+        return pp.Regex('\$or')
+
+
+    @property
+    def string_value(self):
+        return pp.QuotedString('"')
+
+
+    @property
+    def numeric_value(self):
+        return pp.Regex(r"[+-]?\d+(:?\.\d*)?(:?[eE][+-]?\d+)?")
+
+
+    @property
+    def boolean_value(self):
+        return pp.Regex('true')
+
+
+    @property
+    def expression(self):
+        comparison_operators = self.numeric_operators | self.operator_tokens
+        constant = self.string_value | self.numeric_value | self.boolean_value
+        constant.setParseAction(self.replace_if_numeric, self.replace_if_boolean)
+        return pp.Group(self.identifier + comparison_operators + constant)
+
+
+    @property
+    def compound_expression(self):
+        return pp.Group(self.expression + self.logical_operator + self.expression)
 
 
     def replace_if_numeric(self, s=None, loc=None, toks=None):
@@ -40,10 +84,9 @@ class Parser(object):
 
 def try_convert_numeric(s):
     try:
-        return float(s)
-        return f if str(f) == s else int(s)
+        return int(s)
     except ValueError:
         try:
-            return int(s)
+            return float(s)
         except ValueError:
             return s

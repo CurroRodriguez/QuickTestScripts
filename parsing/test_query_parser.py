@@ -18,6 +18,7 @@ class TestParser(unittest.TestCase):
     def test_parses_integer_values(self):
         self.given('id=1')
         self.expect(['id', '=', 1])
+        
 
 
     def test_parses_floats(self):
@@ -40,6 +41,12 @@ class TestParser(unittest.TestCase):
         self.expect(['id', '$eq', 'id'])
 
 
+    def test_allows_compound_statements(self):
+        self.given('id="1"$orelevation=3.2')
+        self.expect([['id', '=', 1], '$or', ['elevation', '=', 3.2]])
+
+
+
 
     def given(self, expression):
         self.expression = expression
@@ -47,8 +54,8 @@ class TestParser(unittest.TestCase):
 
     def expect(self, expected):
         expected_list = [expected]
-        actual = self.parser.parse(self.expression)
-        self.assertListEqual(actual, expected_list)
+        self.actual = self.parser.parse(self.expression)
+        self.assertListEqual(self.actual, expected_list)
 
 
 
