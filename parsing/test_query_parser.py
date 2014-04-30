@@ -2,6 +2,25 @@ import unittest
 
 import query_parser
 
+class TestFilterQueryExpression(unittest.TestCase):
+    
+    def test_provides_expression_components(self):
+        expression = query_parser.FilterQueryExpression('name', '=', 'foo')
+        self.assertEqual(expression.identifier, 'name')
+        self.assertEqual(expression.operator, '=')
+        self.assertEqual(expression.value, 'foo')
+
+class TestParserWithReplacer(unittest.TestCase):
+    
+    def test_callback_is_invoked(self):
+        parser = query_parser.ParserWithReplacer()
+        result = parser.parse('name="foo"')
+        qry_expression = result[0]
+        self.assertEqual(qry_expression.identifier, 'name')
+        self.assertEqual(qry_expression.operator, '=')
+        self.assertEqual(qry_expression.value, 'foo')
+    
+
 class TestParser(unittest.TestCase):
 
     @classmethod

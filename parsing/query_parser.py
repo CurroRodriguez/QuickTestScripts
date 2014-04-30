@@ -2,6 +2,66 @@ import pyparsing as pp
 import string
 
 
+class FilterQueryExpression(object):
+    
+    def __init__(self, identifier, operator, value):
+        self._identifier = identifier
+        self._operator = operator
+        self._value = value
+        
+        
+    @property
+    def identifier(self):
+        return self._identifier
+        
+    
+    @property
+    def operator(self):
+        return self._operator
+        
+        
+    @property
+    def value(self):
+        return self._value
+
+
+class ParserWithReplacer(object):
+
+    def parse(self, qry_str):
+        result = self.expression.parseString(qry_str)
+        return result.asList()
+
+
+    @property
+    def expression(self):
+        expression = pp.Group(self.identifier + self.string_operators + self.string_value)
+        expression.setParseAction(self.make_query_expression)
+        return expression
+    
+    @property
+    def string_value(self):
+        expression = pp.QuotedString('"')
+        return expression
+
+
+    @property
+    def identifier(self):
+        expression = pp.Word(pp.alphas)
+        return expression
+        
+    @property
+    def string_operators(self):
+        expression = pp.Regex('=')
+        return expression
+        
+        
+    def make_query_expression(self, s=None, loc=None, toks=None):
+        if toks:
+            expression = toks[0]
+            qry_expression = FilterQueryExpression(expression[0], expression[1], expression[2])
+            return [qry_expression]
+
+
 
 class Parser(object):
 
