@@ -38,6 +38,7 @@
     <Compile Include="multi_string_split.py" />
     <Compile Include="send_mail.py" />
     <Compile Include="testing_threads.py" />
+    <Compile Include="var_params.py" />
   </ItemGroup>
   <ItemGroup>
     <InterpreterReference Include="{9a7a9026-48c1-4688-9d5d-e5699d47d074}\2.7" />
