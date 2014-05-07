@@ -8,4 +8,9 @@ def write_point(*args):
     point(*args)
     
     
+def show_point(*args):
+    write_point(*args)
+    
+    
 write_point(1, 2, 3)
+show_point(4, 5, 6)
