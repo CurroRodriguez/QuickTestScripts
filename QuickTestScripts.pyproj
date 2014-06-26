@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>98685e68-3715-4ad6-b7a0-4182ff535473</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>parsing\test_query_parser.py</StartupFile>
+    <StartupFile>python_features\decorator_demo.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -36,6 +36,7 @@
     <Compile Include="parsing\test_query_parser.py" />
     <Compile Include="parsing\url_parsing.py" />
     <Compile Include="multi_string_split.py" />
+    <Compile Include="python_features\decorator_demo.py" />
     <Compile Include="send_mail.py" />
     <Compile Include="testing_threads.py" />
     <Compile Include="var_params.py" />
@@ -46,6 +47,7 @@
   <ItemGroup>
     <Folder Include="loading_modules\" />
     <Folder Include="application_interface\" />
+    <Folder Include="python_features\" />
     <Folder Include="parsing\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />
