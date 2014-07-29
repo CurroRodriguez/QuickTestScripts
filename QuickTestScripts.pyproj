@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>98685e68-3715-4ad6-b7a0-4182ff535473</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>python_features\decorator_demo.py</StartupFile>
+    <StartupFile>cherrypy\application_object.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -13,7 +13,7 @@
     <Name>QuickTestScripts</Name>
     <RootNamespace>QuickTestScripts</RootNamespace>
     <IsWindowsApplication>False</IsWindowsApplication>
-    <InterpreterId>{9a7a9026-48c1-4688-9d5d-e5699d47d074}</InterpreterId>
+    <InterpreterId>{9b587f5e-95c5-4f16-b0b6-ca05f6e1b682}</InterpreterId>
     <InterpreterVersion>2.7</InterpreterVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
@@ -28,6 +28,7 @@
     <Compile Include="application_interface\application.py" />
     <Compile Include="application_interface\runner.py" />
     <Compile Include="application_interface\_app_imp.py" />
+    <Compile Include="cherrypy\application_object.py" />
     <Compile Include="class_members.py" />
     <Compile Include="file_upload.py" />
     <Compile Include="loading_modules\lib_module.py" />
@@ -47,8 +48,21 @@
   <ItemGroup>
     <Folder Include="loading_modules\" />
     <Folder Include="application_interface\" />
-    <Folder Include="python_features\" />
+    <Folder Include="cherrypy\" />
     <Folder Include="parsing\" />
+    <Folder Include="python_features\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Interpreter Include="..\..\VirtualEnv\IW\">
+      <Id>{9b587f5e-95c5-4f16-b0b6-ca05f6e1b682}</Id>
+      <BaseInterpreter>{9a7a9026-48c1-4688-9d5d-e5699d47d074}</BaseInterpreter>
+      <Version>2.7</Version>
+      <Description>IW (Python 64-bit 2.7)</Description>
+      <InterpreterPath>Scripts\python.exe</InterpreterPath>
+      <WindowsInterpreterPath>Scripts\pythonw.exe</WindowsInterpreterPath>
+      <LibraryPath>Lib\</LibraryPath>
+      <PathEnvironmentVariable>PYTHONPATH</PathEnvironmentVariable>
+    </Interpreter>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />
 </Project>
