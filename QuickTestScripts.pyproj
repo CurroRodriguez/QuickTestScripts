@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>98685e68-3715-4ad6-b7a0-4182ff535473</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>parsing\test_query_parser.py</StartupFile>
+    <StartupFile>cherrypy\application_object.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -28,6 +28,7 @@
     <Compile Include="application_interface\application.py" />
     <Compile Include="application_interface\runner.py" />
     <Compile Include="application_interface\_app_imp.py" />
+    <Compile Include="cherrypy\application_object.py" />
     <Compile Include="class_members.py" />
     <Compile Include="file_upload.py" />
     <Compile Include="loading_modules\lib_module.py" />
@@ -46,6 +47,7 @@
   <ItemGroup>
     <Folder Include="loading_modules\" />
     <Folder Include="application_interface\" />
+    <Folder Include="cherrypy\" />
     <Folder Include="parsing\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />
