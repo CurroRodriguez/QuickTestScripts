@@ -93,4 +93,5 @@ app = CherryPyApplication(global_configuration, configuration)
 
 
 if __name__=='__main__':
+    cherrypy.log('This is a message', context='init', severity=20)
     app.start()
