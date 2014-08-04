@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>98685e68-3715-4ad6-b7a0-4182ff535473</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>cherrypy\application_object.py</StartupFile>
+    <StartupFile>cherrypy\exception_reporting.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -29,6 +29,9 @@
     <Compile Include="application_interface\runner.py" />
     <Compile Include="application_interface\_app_imp.py" />
     <Compile Include="cherrypy\application_object.py" />
+    <Compile Include="cherrypy\exception_reporting.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="class_members.py" />
     <Compile Include="file_upload.py" />
     <Compile Include="loading_modules\lib_module.py" />
