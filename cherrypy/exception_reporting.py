@@ -4,11 +4,11 @@ import json
 
 
 def handle_error(status, message, traceback, version):
-
+    tb = [line for line in traceback.split('\n')]
     response = {
             'status': status,
             'message': message,
-            'traceback': traceback,
+            'traceback': tb,
             'version': version
         }
     return json.dumps(response)
@@ -18,8 +18,6 @@ def handle_error(status, message, traceback, version):
 
 
 class ExceptionTestingHandler(object):
-
-    _cp_config = {'request.error_response': handle_error}
 
     @cherrypy.expose
     def index(self):
