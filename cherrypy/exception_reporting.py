@@ -1,17 +1,29 @@
 import cherrypy
 import json
+import sys
+import traceback
+
+
+class WrappedException(cherrypy.HTTPError):
+
+    def get_error_page(self, *args, **kwargs):
+        return 'foo'.encode('utf-8')
 
 
 
-def handle_error(status, message, traceback, version):
-    tb = [line for line in traceback.split('\n')]
-    response = {
-            'status': status,
-            'message': message,
-            'traceback': tb,
-            'version': version
-        }
-    return json.dumps(response)
+
+
+
+def global_error_handler():
+    e_type, e_value, e_tb = sys.exc_info()
+    record = {
+        "code": 500,
+        "type": str(e_type),
+        "value": str(e_value)
+    }
+    cherrypy.response.status = 500
+    body = json.dumps(record, encoding='utf-8')
+    cherrypy.response.body = body
     
 
 
@@ -23,12 +35,14 @@ class ExceptionTestingHandler(object):
     def index(self):
         #return 'running....'
 
-        raise cherrypy.HTTPError(404, message='foo')
+        raise KeyError('key')
 
 
 
 
 
-config = {'error_page.default': handle_error}
+
+
+config = {'request.error_response': global_error_handler}
 cherrypy.config.update(config)
 cherrypy.quickstart(ExceptionTestingHandler())
